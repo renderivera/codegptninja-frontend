@@ -7,7 +7,7 @@ export const openaiApi = createApi({
 		fetchCode: builder.mutation({
 			query: (prompt) => ({
 				url: "/code",
-				body: { prompt: prompt },
+				body: { prompt },
 				method: "POST",
 			}),
 		}),

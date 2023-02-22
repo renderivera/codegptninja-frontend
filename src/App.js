@@ -29,8 +29,12 @@ export default function App() {
 	return (
 		<div>
 			<input value={prompt} onChange={handleChange} />
-			<button onClick={handleClick}>submit</button>
-			<div>{content}</div>
+			<button disabled={result.isLoading} onClick={handleClick}>
+				submit
+			</button>
+			<div>
+				<pre>{content}</pre>
+			</div>
 		</div>
 	);
 }

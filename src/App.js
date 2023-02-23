@@ -1,15 +1,19 @@
-import PromptForm from "./components/PromptForm";
-import { useFetchCodeMutation, changePrompt } from "./store";
+import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
+import LandingPage from "./pages/LandingPage";
+import WriteCodePage from "./pages/WriteCodePage";
 
 export default function App() {
 	return (
-		<div>
-			<PromptForm
-				changePromptAction={changePrompt}
-				promptSelectorFunction={(state) => state.writecode.prompt}
-				useFetchMutation={useFetchCodeMutation}
-				resultPropertyName="code"
-			/>
-		</div>
+		<BrowserRouter>
+			<div>
+				<NavLink to="/">Home</NavLink>
+				<br />
+				<NavLink to="writecode">code</NavLink>
+			</div>
+			<Routes>
+				<Route path="/" element={<LandingPage />} />
+				<Route path="writecode" element={<WriteCodePage />} />
+			</Routes>
+		</BrowserRouter>
 	);
 }

@@ -1,23 +1,34 @@
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 export default function PromptForm({
-	useFetchMutation,
+	useLazyFetchQuery,
 	resultPropertyName,
 	promptSelectorFunction,
 	changePromptAction,
 }) {
-	const [fetch, result] = useFetchMutation();
-	const prompt = useSelector(promptSelectorFunction);
+	const { prompt, submittedPrompt } = useSelector(promptSelectorFunction);
+	const [fetchData, result] = useLazyFetchQuery();
 	const dispatch = useDispatch();
 
 	const handleChange = (e) => {
-		dispatch(changePromptAction(e.target.value));
+		dispatch(changePromptAction({ prompt: e.target.value }));
 	};
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		fetch(prompt);
+		fetchData(prompt, true).then(() => {
+			dispatch(changePromptAction({ submittedPrompt: prompt }));
+		});
 	};
+
+	// load previous gpt result
+	useEffect(() => {
+		if (submittedPrompt.length > 0) {
+			// avoid unnecessary req to server
+			fetchData(submittedPrompt, true);
+		}
+	}, []);
 
 	let content;
 	if (result.isLoading) {
@@ -31,7 +42,7 @@ export default function PromptForm({
 	return (
 		<div>
 			<form onSubmit={handleSubmit}>
-				<textarea onChange={handleChange} />
+				<textarea value={prompt} onChange={handleChange} />
 				<input type="submit" value="go ninja!" />
 			</form>
 			<pre>{content}</pre>

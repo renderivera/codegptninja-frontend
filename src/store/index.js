@@ -1,16 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { openaiApi } from "./api/openaiApi";
-import { codeSlice } from "./slices/codeSlice";
+import { promptSlice } from "./slices/promptSlice";
 
 export const store = configureStore({
 	reducer: {
 		[openaiApi.reducerPath]: openaiApi.reducer,
-		[codeSlice.name]: codeSlice.reducer,
+		[codeSlice.name]: promptSlice.reducer,
 	},
-	middleware: (getDefaultMiddleware) => {
-		return getDefaultMiddleware().concat(openaiApi.middleware);
-	},
+	middleware: (getDM) => getDM().concat(openaiApi.middleware),
 });
 
-export { useFetchCodeMutation } from "./api/openaiApi";
-export { changePrompt } from "./slices/codeSlice";
+export { useLazyFetchCodeQuery } from "./api/openaiApi";
+export { changeCodePrompt, changeExplainPrompt } from "./slices/promptSlice";

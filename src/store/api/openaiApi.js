@@ -4,7 +4,7 @@ export const openaiApi = createApi({
 	baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:3001/api" }),
 	reducerPath: "openai",
 	endpoints: (builder) => ({
-		fetchCode: builder.mutation({
+		fetchCode: builder.query({
 			query: (prompt) => ({
 				url: "/code",
 				body: { prompt },
@@ -14,4 +14,4 @@ export const openaiApi = createApi({
 	}),
 });
 
-export const { useFetchCodeMutation } = openaiApi;
+export const { useLazyFetchCodeQuery } = openaiApi;

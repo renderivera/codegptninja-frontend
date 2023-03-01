@@ -10,6 +10,7 @@ export const store = configureStore({
 		[languageSlice.name]: languageSlice.reducer,
 	},
 	middleware: (getDM) => getDM().concat(openaiApi.middleware),
+	devTools: false,
 });
 
 export { useLazyFetchCodeQuery, useLazyFetchExplainQuery, useLazyFetchUnitTestQuery } from "./api/openaiApi";

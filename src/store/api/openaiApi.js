@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const openaiApi = createApi({
-	baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:3001/api" }),
+	baseQuery: fetchBaseQuery({ baseUrl: process.env.REACT_APP_BACKEND_URL }),
 	reducerPath: "openai",
 	endpoints: (builder) => ({
 		fetchCode: builder.query({

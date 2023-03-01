@@ -1,0 +1,250 @@
+:root {
+    --primary: #ccc;
+    --bgcolor: #1e1e1e;
+    --codetext: #ccc;
+    --codebg: #2d2d2d;
+    --contentwidth: 60%;
+    --contentwidthSmall: 99%;
+    --borderradius: 0px;
+    --disabledcolor: rgb(67, 67, 67);
+}
+
+body{
+    margin: 0;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    background-color: var(--bgcolor);
+}
+#root{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.navbar{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    width: 100%;
+}
+
+.menu{
+    display: flex;
+    gap: 2px;
+    width: var(--contentwidth);
+}
+
+.menu-item {
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 35px;
+    border-width: 2px;
+    border-color: var(--bgcolor);
+    border-bottom-color: var(--primary);
+    border-style: solid;
+    text-decoration: none;
+    transition: all 0.2s;
+    flex-shrink: 5;
+    border-radius: var(--borderradius);
+}
+
+.menu-item.active{
+    background-color: var(--primary);
+    color: var(--bgcolor);
+}
+
+.menu-item:hover {
+    border-color: var(--primary);
+}
+
+.menu-item:active {
+    transform: translate(1px,1px);
+}
+.menu-item div{
+    margin-left: 2px;
+}
+
+.footer{
+    color: var(--primary);
+    margin-top: auto;
+    align-self: center;
+    padding: 5px;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+}
+
+.logo-img{
+    color: var(--primary);
+    font-size: 1.5pt;
+    width: 70px;
+    height: 60px;
+}
+
+.logo-text{
+    color: var(--primary);
+    margin-left: 5px;
+    font-size: 8pt;
+    height: 50px;
+    width: 300px;
+}
+
+.prompt-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    flex: 1;
+}
+
+.form{
+    width: var(--contentwidth);
+    height: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/*needed to fix flickering issue with react-codemirror component*/
+.form-input{
+    border-width: 1px;
+    padding: 10px;
+    border-color: var(--primary);
+    border-style: solid;
+    min-height: 35vh;
+    color: var(--codetext);
+    background-color: var(--codebg);
+    border-radius: var(--borderradius);
+    transition: all 0.25s;
+}
+
+.editor{
+    min-height: inherit;
+}
+
+.disabledText{
+    color: gray;
+}
+
+.form-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+
+    background-color: var(--bgcolor);
+    color: var(--primary);
+
+    border: 1px solid var(--primary);
+    border-top-width: 0;
+    transition: all 0.2s;
+    font-size: medium;
+    padding: 4px;
+    width: 120px;
+    height: 30px;
+    border-radius: var(--borderradius);
+}
+
+.form-input:has(+ .form-button:active:enabled) {
+    background-color: white;
+}
+
+.form-button:disabled{
+    border-color: var(--disabledcolor);
+    color: var(--disabledcolor);
+}
+
+.form-button:active{
+    transform: translate(1px,1px);
+}
+
+.form-button:enabled:hover {
+    background-color: var(--primary);
+    color: var(--bgcolor);
+    cursor: pointer;
+}
+
+.loading-text {
+    font-size:  6pt;
+}
+
+.language-select{
+    margin-left: auto;
+    text-align: right;
+    width: 110px;
+    margin-top: auto;
+}
+
+.language-select__menu{
+    margin: 0 !important;
+}
+
+.language-select__control--is-focused{
+    box-shadow: none !important;
+    border-color: var(--codetext) !important;
+}
+.language-select__input-container{
+    color: var(--codetext);
+}
+.language-select__menu-list{
+    background-color: var(--bgcolor) !important;
+    border-color: var(--codetext) !important;
+    border-style: solid;
+    border-width: 1px;
+
+    color: var(--primary) !important;
+    padding: 0 !important;
+    max-height: fit-content !important;
+}
+
+.language-select__option {
+    padding: 2px !important;
+}
+
+.language-select__option--is-selected{
+    background-color: var(--primary) !important;
+    color: var(--bgcolor) !important;
+}
+
+.language-select__option--is-focused{
+    background-color: var(--primary) !important;
+    color: var(--bgcolor) !important;
+}
+
+
+.language-select__control{
+    background-color: var(--bgcolor) !important;
+    color: var(--primary) !important;
+    border-radius: var(--borderradius) !important;
+    font-size: 11pt;
+}
+.language-select__indicator-separator{
+    width: 0 !important;
+}
+.language-select__single-value{
+    color: var(--primary) !important;
+}
+
+.language-select__indicator{
+    padding: 2px !important;
+    width: 15px !important;
+}
+
+.language-select__value-container {
+    padding: 2px !important;
+}
+
+textarea:focus-visible {
+    outline: none;
+}
+
+@media (max-aspect-ratio: 1.2/1) {
+    .form, .menu {
+        width: var(--contentwidthSmall);
+    }
+  }

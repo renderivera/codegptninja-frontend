@@ -1,19 +1,22 @@
-import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
-import LandingPage from "./pages/LandingPage";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Footer from "./components/Footer";
+import NavBar from "./components/NavBar";
 import WriteCodePage from "./pages/WriteCodePage";
+import WriteUnitTestPage from "./pages/WriteUnitTestPage";
+import ExplainCodePage from "./pages/ExplainCodePage";
+
+import "./style.css";
 
 export default function App() {
 	return (
 		<BrowserRouter>
-			<div>
-				<NavLink to="/">Home</NavLink>
-				<br />
-				<NavLink to="writecode">code</NavLink>
-			</div>
+			<NavBar />
 			<Routes>
-				<Route path="/" element={<LandingPage />} />
-				<Route path="writecode" element={<WriteCodePage />} />
+				<Route path="/" element={<WriteCodePage />} />
+				<Route path="explain" element={<ExplainCodePage />} />
+				<Route path="unittest" element={<WriteUnitTestPage />} />
 			</Routes>
+			<Footer />
 		</BrowserRouter>
 	);
 }

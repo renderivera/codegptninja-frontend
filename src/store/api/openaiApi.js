@@ -6,7 +6,21 @@ export const openaiApi = createApi({
 	endpoints: (builder) => ({
 		fetchCode: builder.query({
 			query: (prompt) => ({
-				url: "/code",
+				url: "/writecode",
+				body: { prompt },
+				method: "POST",
+			}),
+		}),
+		fetchExplain: builder.query({
+			query: (prompt) => ({
+				url: "/explaincode",
+				body: { prompt },
+				method: "POST",
+			}),
+		}),
+		fetchUnitTest: builder.query({
+			query: (prompt) => ({
+				url: "/writeunittest",
 				body: { prompt },
 				method: "POST",
 			}),
@@ -14,4 +28,4 @@ export const openaiApi = createApi({
 	}),
 });
 
-export const { useLazyFetchCodeQuery } = openaiApi;
+export const { useLazyFetchCodeQuery, useLazyFetchExplainQuery, useLazyFetchUnitTestQuery } = openaiApi;

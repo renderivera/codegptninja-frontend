@@ -11,7 +11,7 @@ export default function Typewriter({ text, duration, loop = false }) {
 		} else if (loop) {
 			setRenderedText("");
 		}
-	}, [renderedText, setRenderedText]);
+	}, [renderedText, setRenderedText, text, duration, loop]);
 
 	return renderedText;
 }

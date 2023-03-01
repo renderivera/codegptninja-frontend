@@ -47,7 +47,7 @@ export default function PromptForm({ useLazyFetchQuery, promptSelectorFunction, 
 		if (submittedPrompt.length > 0) {
 			fetchAi(submittedPrompt, true);
 		}
-	}, []);
+	}, [fetchAi, submittedPrompt]);
 
 	let content;
 	let copyButtonDisable = false;
@@ -71,7 +71,7 @@ export default function PromptForm({ useLazyFetchQuery, promptSelectorFunction, 
 			/>
 		);
 	} else {
-		content = <div className="disabledText">/* Result will be printed here */</div>;
+		content = <div className="disabledText">Result will be printed here</div>;
 		copyButtonDisable = true;
 	}
 
@@ -88,7 +88,7 @@ export default function PromptForm({ useLazyFetchQuery, promptSelectorFunction, 
 						placeholder={placeholder}
 					/>
 				</div>
-				<button type="submit" className="form-button" disabled={result.isFetching || prompt.length == 0}>
+				<button type="submit" className="form-button" disabled={result.isFetching || prompt.length === 0}>
 					<AiFillThunderbolt />
 					<div>go ninja</div>
 				</button>

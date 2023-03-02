@@ -4,7 +4,7 @@ const loadingText = `█   ▄▀▄ ▄▀▄ █▀▄ █ █▄ █ ▄▀
 
 const text = `▄▀▀ ▄▀▄ █▀▄ ██▀ ▄▀  █▀▄ ▀█▀   █▄ █ █ █▄ █   █ ▄▀▄
 ▀▄▄ ▀▄▀ █▄▀ █▄▄ ▀▄█ █▀   █    █ ▀█ █ █ ▀█ ▀▄█ █▀█
-YOUR PERSONAL CODING ASSISTANT, POWERED BY OPENAI`;
+YOUR PERSONAL CODING ASSISTANT, POWERED BY OPENAI CODEX`;
 
 const image = `     #####     
    #########   

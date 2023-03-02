@@ -11,7 +11,7 @@
 
 body{
     margin: 0;
-    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    font-family: "Source Code Pro";
     background-color: var(--bgcolor);
 }
 #root{
@@ -19,6 +19,10 @@ body{
     flex-direction: column;
     min-height: 100vh;
     padding: 4px;
+}
+
+pre{
+    font-family: inherit;
 }
 
 .navbar{
@@ -87,7 +91,7 @@ body{
     color: var(--primary);
     font-size: 5px;
     line-height: 3px;
-    width: 42px;
+    width: 45px;
     height: 45px;
     margin: 0;
 }
@@ -96,10 +100,10 @@ body{
 .logo-text{
     color: var(--primary);
     margin: 0px;
-    font-size: 10px;
+    font-size: 9px;
     line-height: 12px;
     height: 35px;
-    width: 270px;
+    width: 300px;
 }
 
 .prompt-form{
@@ -270,7 +274,7 @@ textarea:focus-visible {
     }
   }
 
-@media (max-width: 350px) {
+@media (max-width: 380px) {
     .logo-img {
         display: none;
     }
@@ -285,9 +289,9 @@ textarea:focus-visible {
     }
 
     .logo-text{
-        font-size: 6px;
-        line-height: 6px;
-        width: 162px;
+        font-size: 5px;
+        line-height: 7px;
+        width: 165px;
         height: 20px;
     }
 }

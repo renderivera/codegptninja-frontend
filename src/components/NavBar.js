@@ -36,6 +36,8 @@ export default function NavBar() {
 					value={language}
 					options={languages}
 					onChange={handleChangeLanguage}
+					isSearchable={false}
+					foc
 				/>
 			</div>
 		</div>

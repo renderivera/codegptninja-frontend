@@ -97,6 +97,7 @@ body{
     color: var(--primary);
     margin: 0px;
     font-size: 10px;
+    line-height: 12px;
     height: 35px;
     width: 270px;
 }
@@ -285,6 +286,7 @@ textarea:focus-visible {
 
     .logo-text{
         font-size: 6px;
+        line-height: 6px;
         width: 162px;
         height: 20px;
     }

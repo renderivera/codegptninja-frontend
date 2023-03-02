@@ -73,6 +73,7 @@ body{
     margin-top: auto;
     align-self: center;
     padding: 5px;
+    font-size: 10px;
 }
 
 .logo{
@@ -84,10 +85,10 @@ body{
 
 .logo-img{
     color: var(--primary);
-    font-size: 0.35rem;
-    line-height: 0.2rem;
-    width: 3rem;
-    height: 3rem;
+    font-size: 5px;
+    line-height: 3px;
+    width: 42px;
+    height: 45px;
     margin: 0;
 }
 
@@ -95,9 +96,9 @@ body{
 .logo-text{
     color: var(--primary);
     margin: 0px;
-    font-size: 0.65rem;
-    height: 2.2rem;
-    width: 17.5rem;
+    font-size: 10px;
+    height: 35px;
+    width: 270px;
 }
 
 .prompt-form{
@@ -286,7 +287,8 @@ textarea:focus-visible {
     }
 
     .logo-text{
-        font-size: 0.45rem;
-        width: 12rem;
+        font-size: 6px;
+        width: 162px;
+        height: 20px;
     }
 }

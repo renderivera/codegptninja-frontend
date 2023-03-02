@@ -1,5 +1,5 @@
 :root {
-    --primary: #ccc;
+    --primary: #00f083;
     --bgcolor: #1e1e1e;
     --codetext: #ccc;
     --codebg: #2d2d2d;
@@ -25,13 +25,17 @@ body{
     flex-direction: column;
     justify-items: center;
     align-items: center;
-    width: 100%;
+    width: var(--contentwidth);
+    align-self: center;
+    margin-top: 2px;
 }
 
 .menu{
     display: flex;
     gap: 2px;
-    width: var(--contentwidth);
+    width: 100%;
+    margin-top: 4px;
+    flex-wrap: wrap;
 }
 
 .menu-item {
@@ -39,8 +43,6 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100px;
-    height: 35px;
     border-width: 2px;
     border-color: var(--bgcolor);
     border-bottom-color: var(--primary);
@@ -49,6 +51,8 @@ body{
     transition: all 0.2s;
     flex-shrink: 5;
     border-radius: var(--borderradius);
+    gap: 2px;
+    padding: 2px;
 }
 
 .menu-item.active{
@@ -63,9 +67,6 @@ body{
 .menu-item:active {
     transform: translate(1px,1px);
 }
-.menu-item div{
-    margin-left: 2px;
-}
 
 .footer{
     color: var(--primary);
@@ -77,21 +78,26 @@ body{
 .logo{
     display: flex;
     align-items: center;
+    justify-items: center;
+    gap: 10px;
 }
 
 .logo-img{
     color: var(--primary);
-    font-size: 1.5pt;
-    width: 70px;
-    height: 60px;
+    font-size: 0.35rem;
+    line-height: 0.2rem;
+    width: 3rem;
+    height: 3rem;
+    margin: 0;
 }
+
 
 .logo-text{
     color: var(--primary);
-    margin-left: 5px;
-    font-size: 8pt;
-    height: 50px;
-    width: 300px;
+    margin: 0px;
+    font-size: 0.65rem;
+    height: 2.2rem;
+    width: 17.5rem;
 }
 
 .prompt-form{
@@ -110,7 +116,6 @@ body{
     flex-direction: column;
 }
 
-/*needed to fix flickering issue with react-codemirror component*/
 .form-input{
     border-width: 1px;
     padding: 10px;
@@ -176,12 +181,13 @@ body{
 .language-select{
     margin-left: auto;
     text-align: right;
-    width: 110px;
     margin-top: auto;
 }
 
 .language-select__menu{
     margin: 0 !important;
+    right: 0 !important;
+    min-width: fit-content !important;
 }
 
 .language-select__control--is-focused{
@@ -204,14 +210,18 @@ body{
 
 .language-select__option {
     padding: 2px !important;
+    border: 1px solid var(--bgcolor)!important;
+}
+
+
+
+.language-select__option--is-focused{
+    border: 1px solid var(--primary) !important;
+    background-color: var(--bgcolor) !important;
+    color: var(--primary) !important;
 }
 
 .language-select__option--is-selected{
-    background-color: var(--primary) !important;
-    color: var(--bgcolor) !important;
-}
-
-.language-select__option--is-focused{
     background-color: var(--primary) !important;
     color: var(--bgcolor) !important;
 }
@@ -222,21 +232,30 @@ body{
     color: var(--primary) !important;
     border-radius: var(--borderradius) !important;
     font-size: 11pt;
+    border: none !important;
+    min-width: 15px;
 }
 .language-select__indicator-separator{
-    width: 0 !important;
+    display: none;
 }
 .language-select__single-value{
     color: var(--primary) !important;
+    grid-area: auto !important;
+    margin-left: auto !important;
+    margin-right: 0px !important;
 }
 
 .language-select__indicator{
     padding: 2px !important;
     width: 15px !important;
+    color: var(--primary) !important;
 }
 
 .language-select__value-container {
-    padding: 2px !important;
+    padding: 0px !important;
+    display: flex !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
 }
 
 textarea:focus-visible {
@@ -244,7 +263,30 @@ textarea:focus-visible {
 }
 
 @media (max-aspect-ratio: 1.2/1) {
-    .form, .menu {
+    .form, .menu, .navbar {
         width: var(--contentwidthSmall);
     }
   }
+
+@media (max-width: 350px) {
+    .logo-img {
+        display: none;
+    }
+}
+
+@media (max-width: 330px) {
+    .language-select__single-value, .language-select__indicator {
+        display: none !important;
+    }
+
+    .language-select__control::after{
+        content: "☰";
+        position: absolute;
+        right: 2px;
+    }
+
+    .logo-text{
+        font-size: 0.45rem;
+        width: 12rem;
+    }
+}

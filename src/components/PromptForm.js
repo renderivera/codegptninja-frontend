@@ -54,7 +54,7 @@ export default function PromptForm({ useLazyFetchQuery, promptSelectorFunction, 
 	if (result.isFetching) {
 		content = (
 			<pre className="loading-text">
-				<Typewriter text={loadingText} duration={2000} loop={true} />
+				<Typewriter text={loadingText} duration={1000} loop={true} />
 			</pre>
 		);
 	} else if (result.isError) {

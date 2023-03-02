@@ -219,7 +219,9 @@ pre{
     border: 1px solid var(--bgcolor)!important;
 }
 
-
+.github-link{
+    color: var(--primary);
+}
 
 .language-select__option--is-focused{
     border: 1px solid var(--primary) !important;

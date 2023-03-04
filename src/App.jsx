@@ -6,7 +6,7 @@ import WriteUnitTestPage from "./pages/WriteUnitTestPage";
 import ExplainCodePage from "./pages/ExplainCodePage";
 
 import "@fontsource/source-code-pro";
-import "./style.css";
+import "./assets/style.css";
 
 export default function App() {
 	return (

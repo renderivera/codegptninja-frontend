@@ -1,5 +1,5 @@
 import Typewriter from "./TypeWriter";
-import { image, text } from "./AsciiArt";
+import { image, text } from "../assets/AsciiArt";
 
 export default function Logo() {
 	return (

@@ -30,37 +30,20 @@ export default function PromptForm({ useLazyFetchQuery, promptSelectorFunction, 
 		navigator.clipboard.writeText(result.data.ai);
 	};
 
-	// load previous gpt result
+	// load previous gpt result on page change
 	useEffect(() => {
 		if (submittedPrompt.length > 0) {
 			fetchAi(submittedPrompt, true);
 		}
 	}, [fetchAi, submittedPrompt]);
 
-	let content;
-	let copyButtonDisable = false;
+	let content = "";
 	if (result.isFetching) {
-		content = (
-			<pre className="loading-text">
-				<Typewriter text={loadingText} duration={1000} loop={true} />
-			</pre>
-		);
+		content = "loading..."
 	} else if (result.isError) {
 		content = `Error: (${result.error.status}) ${result.error.data.error}`;
 	} else if (result.isSuccess) {
-		const ai = result.data.ai;
-		content = (
-			<Editor
-				className="editor"
-				value={ai}
-				readOnly={true}
-				highlight={(ai) => Prism.highlight(ai, Prism.languages[language.value])}
-				padding={0}
-			/>
-		);
-	} else {
-		content = <div className="disabledText">Result will be printed here</div>;
-		copyButtonDisable = true;
+		content = result.data.ai;
 	}
 
 	return (
@@ -82,8 +65,17 @@ export default function PromptForm({ useLazyFetchQuery, promptSelectorFunction, 
 				</button>
 			</form>
 			<form className="form" onSubmit={copyToClipboard}>
-				<div className="form-input">{content}</div>
-				<button type="submit" className="form-button" disabled={result.isFetching || copyButtonDisable}>
+				<div className="form-input">
+					<Editor
+						className="editor"
+						value={content}
+						readOnly={true}
+						placeholder="result will be printed here"
+						highlight={(content) => Prism.highlight(content, Prism.languages[language.value])}
+						padding={0}
+					/>
+				</div>
+				<button type="submit" className="form-button" disabled={result.isFetching || result.isError || content.length === 0}>
 					<HiClipboardCopy />
 					<div>copy</div>
 				</button>

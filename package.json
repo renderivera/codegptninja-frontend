@@ -20,7 +20,8 @@
   "scripts": {
     "analyze": "source-map-explorer 'build/static/js/*.js'",
     "start": "vite",
-    "build": "vite build"
+    "build": "vite build",
+    "serve": "http-server ./dist"
   },
   "eslintConfig": {
     "extends": [

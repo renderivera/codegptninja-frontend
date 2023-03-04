@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { changeLanguage } from "../store";
 import Select from "react-select";
 import languages from "../store/languages";
+import "../assets/LanguageSelect.css"
 
 export default function NavBar() {
 	const language = useSelector((state) => state.language);

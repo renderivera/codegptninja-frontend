@@ -2,7 +2,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Footer from "./components/Footer";
 import NavBar from "./components/NavBar";
 import WriteCodePage from "./pages/WriteCodePage";
-import WriteUnitTestPage from "./pages/WriteUnitTestPage";
 import ExplainCodePage from "./pages/ExplainCodePage";
 
 import "@fontsource/source-code-pro";
@@ -21,7 +20,6 @@ export default function App() {
 			<Routes>
 				<Route path="/" element={<WriteCodePage title={`${pageTitle} Write Code`} />} />
 				<Route path="explain" element={<ExplainCodePage title={`${pageTitle} Explain Code`} />} />
-				<Route path="unittest" element={<WriteUnitTestPage title={`${pageTitle} Write Unit Test`} />} />
 			</Routes>
 			<Footer />
 		</BrowserRouter>

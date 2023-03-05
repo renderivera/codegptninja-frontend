@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import languages from "../languages";
+import languages from "../../components/languages";
 
 export const languageSlice = createSlice({
 	name: "language",

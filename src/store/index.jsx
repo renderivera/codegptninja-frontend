@@ -13,6 +13,6 @@ export const store = configureStore({
 	devTools: false,
 });
 
-export { useLazyFetchCodeQuery, useLazyFetchExplainQuery, useLazyFetchUnitTestQuery } from "./api/openaiApi";
-export { changeCodePrompt, changeExplainPrompt, changeUnitTestPrompt } from "./slices/promptSlice";
+export { useLazyFetchCodeQuery, useLazyFetchExplainQuery } from "./api/openaiApi";
+export { changeCodePrompt, changeExplainPrompt } from "./slices/promptSlice";
 export { changeLanguage } from "./slices/languageSlice";

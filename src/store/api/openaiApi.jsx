@@ -18,14 +18,7 @@ export const openaiApi = createApi({
 				method: "POST",
 			}),
 		}),
-		fetchUnitTest: builder.query({
-			query: (prompt) => ({
-				url: "/writeunittest",
-				body: { prompt },
-				method: "POST",
-			}),
-		}),
 	}),
 });
 
-export const { useLazyFetchCodeQuery, useLazyFetchExplainQuery, useLazyFetchUnitTestQuery } = openaiApi;
+export const { useLazyFetchCodeQuery, useLazyFetchExplainQuery } = openaiApi;

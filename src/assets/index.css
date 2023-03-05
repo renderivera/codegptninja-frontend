@@ -1,209 +1,211 @@
 :root {
-    --primary: #00f083;
-    --bgcolor: #1e1e1e;
-    --codetext: #ccc;
-    --codebg: #2d2d2d;
-    --contentwidth: 60%;
-    --contentwidthSmall: 100%;
-    --borderradius: 0px;
-    --disabledcolor: rgb(67, 67, 67);
+	--primary: #00f083;
+	--bgcolor: #1e1e1e;
+	--codetext: #ccc;
+	--codebg: #2d2d2d;
+	--contentwidth: 60%;
+	--contentwidthSmall: 100%;
+	--borderradius: 0px;
+	--disabledcolor: rgb(67, 67, 67);
 }
 
-body{
-    margin: 0;
-    font-family: "Source Code Pro";
-    background-color: var(--bgcolor);
+body {
+	margin: 0;
+	font-family: "Source Code Pro";
+	background-color: var(--bgcolor);
 }
-#root{
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    padding: 4px;
-}
-
-pre{
-    font-family: inherit;
+#root {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	padding: 4px;
 }
 
-.navbar{
-    display: flex;
-    flex-direction: column;
-    justify-items: center;
-    width: var(--contentwidth);
-    align-self: center;
-    margin-top: 2px;
+pre {
+	font-family: inherit;
 }
 
-.menu{
-    display: flex;
-    gap: 2px;
-    width: 100%;
-    margin-top: 4px;
-    flex-wrap: wrap;
+.navbar {
+	display: flex;
+	flex-direction: column;
+	justify-items: center;
+	align-items: center;
+	width: var(--contentwidth);
+	align-self: center;
+	margin-top: 2px;
+}
+
+.menu {
+	display: flex;
+	gap: 2px;
+	width: 100%;
+	margin-top: 4px;
+	flex-wrap: wrap;
 }
 
 .menu-item {
-    color: var(--primary);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-width: 2px;
-    border-color: var(--bgcolor);
-    border-bottom-color: var(--primary);
-    border-style: solid;
-    text-decoration: none;
-    transition: all 0.2s;
-    flex-shrink: 5;
-    border-radius: var(--borderradius);
-    gap: 2px;
-    padding: 2px;
+	color: var(--primary);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-width: 2px;
+	border-color: var(--bgcolor);
+	border-bottom-color: var(--primary);
+	border-style: solid;
+	text-decoration: none;
+	transition: all 0.2s;
+	flex-shrink: 5;
+	border-radius: var(--borderradius);
+	gap: 2px;
+	padding: 2px;
 }
 
-.menu-item.active{
-    background-color: var(--primary);
-    color: var(--bgcolor);
+.menu-item.active {
+	background-color: var(--primary);
+	color: var(--bgcolor);
 }
 
 .menu-item:hover {
-    border-color: var(--primary);
+	border-color: var(--primary);
 }
 
 .menu-item:active {
-    transform: translate(1px,1px);
+	transform: translate(1px, 1px);
 }
 
-.footer{
-    color: var(--primary);
-    margin-top: auto;
-    align-self: center;
-    padding: 5px;
-    font-size: 12px;
+.footer {
+	color: var(--primary);
+	margin-top: auto;
+	align-self: center;
+	padding: 5px;
+	font-size: 12px;
 }
 
-.logo{
-    display: flex;
-    align-items: center;
-    justify-items: center;
-    gap: 10px;
-    margin: 0;
+.logo {
+	display: flex;
+	align-items: center;
+	justify-items: center;
+	gap: 10px;
+	margin: 0;
 }
 
-
-.logo-img{
-    color: var(--primary);
-    font-size: 5px;
-    line-height: 3px;
-    width: 45px;
-    height: 45px;
-    margin: 0;
+.logo-img {
+	color: var(--primary);
+	font-size: 5px;
+	line-height: 3px;
+	width: 45px;
+	height: 45px;
+	margin: 0;
 }
 
-.logo-text{
-    color: var(--primary);
-    margin: 0px;
-    font-size: 9px;
-    line-height: 12px;
-    height: 35px;
-    width: 300px;
+.logo-text {
+	color: var(--primary);
+	margin: 0px;
+	font-size: 9px;
+	line-height: 12px;
+	height: 35px;
+	width: 300px;
 }
 
-.prompt-form{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: auto;
-    flex: 1;
+.prompt-form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: auto;
+	flex: 1;
 }
 
-.form{
-    width: var(--contentwidth);
-    height: 100%;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
+.form {
+	width: var(--contentwidth);
+	height: 100%;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
 }
 
-.form-input{
-    border-width: 1px;
-    padding: 10px;
-    border-color: var(--primary);
-    border-style: solid;
-    min-height: 35vh;
-    color: var(--codetext);
-    background-color: var(--codebg);
-    border-radius: var(--borderradius);
-    transition: all 0.25s;
+.form-input {
+	border-width: 1px;
+	padding: 10px;
+	border-color: var(--primary);
+	border-style: solid;
+	min-height: 35vh;
+	color: var(--codetext);
+	background-color: var(--codebg);
+	border-radius: var(--borderradius);
+	transition: all 0.25s;
 }
 
-.editor{
-    min-height: inherit;
+.editor {
+	min-height: inherit;
 }
 
-.disabledText{
-    color: gray;
+.disabledText {
+	color: gray;
 }
 
 .form-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 5px;
 
-    background-color: var(--bgcolor);
-    color: var(--primary);
+	background-color: var(--bgcolor);
+	color: var(--primary);
 
-    border: 1px solid var(--primary);
-    border-top-width: 0;
-    transition: all 0.2s;
-    font-size: medium;
-    padding: 4px;
-    width: 120px;
-    height: 30px;
-    border-radius: var(--borderradius);
+	border: 1px solid var(--primary);
+	border-top-width: 0;
+	transition: all 0.2s;
+	font-size: medium;
+	padding: 4px;
+	width: 120px;
+	height: 30px;
+	border-radius: var(--borderradius);
 }
 
 .form-input:has(+ .form-button:active:enabled) {
-    background-color: white;
+	background-color: white;
 }
 
-.form-button:disabled{
-    border-color: var(--disabledcolor);
-    color: var(--disabledcolor);
+.form-button:disabled {
+	border-color: var(--disabledcolor);
+	color: var(--disabledcolor);
 }
 
-.form-button:active{
-    transform: translate(1px,1px);
+.form-button:active {
+	transform: translate(1px, 1px);
 }
 
 .form-button:enabled:hover {
-    background-color: var(--primary);
-    color: var(--bgcolor);
-    cursor: pointer;
+	background-color: var(--primary);
+	color: var(--bgcolor);
+	cursor: pointer;
 }
 
-.github-link{
-    color: var(--primary);
+.github-link {
+	color: var(--primary);
 }
 
 textarea:focus-visible {
-    outline: none;
+	outline: none;
 }
 
 @media (max-aspect-ratio: 1.2/1) {
-    .form, .menu, .navbar {
-        width: var(--contentwidthSmall);
-    }
-  }
+	.form,
+	.menu,
+	.navbar {
+		width: var(--contentwidthSmall);
+	}
+}
 
 @media (max-width: 380px) {
-    .logo-img {
-        display: none;
-    }
+	.logo-img {
+		display: none;
+	}
 
-    .logo-text{
-        font-size: 5px;
-        line-height: 7px;
-        width: 165px;
-        height: 20px;
-    }
+	.logo-text {
+		font-size: 5px;
+		line-height: 7px;
+		width: 165px;
+		height: 20px;
+	}
 }

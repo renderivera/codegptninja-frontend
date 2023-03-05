@@ -34,6 +34,7 @@ export default function NavBar() {
 				<Select
 					className="language-select"
 					classNamePrefix="language-select"
+					aria-label="select programming language syntax highlighting"
 					value={language}
 					options={languages}
 					onChange={handleChangeLanguage}

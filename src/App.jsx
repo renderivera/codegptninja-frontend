@@ -8,14 +8,20 @@ import ExplainCodePage from "./pages/ExplainCodePage";
 import "@fontsource/source-code-pro";
 import "./assets/index.css";
 
+import ReactGA from "react-ga4";
+
+ReactGA.initialize("G-45PW2SH6DH");
+
+const pageTitle = "CodeGPT Ninja |";
+
 export default function App() {
 	return (
 		<BrowserRouter>
 			<NavBar />
 			<Routes>
-				<Route path="/" element={<WriteCodePage />} />
-				<Route path="explain" element={<ExplainCodePage />} />
-				<Route path="unittest" element={<WriteUnitTestPage />} />
+				<Route path="/" element={<WriteCodePage title={`${pageTitle} Write Code`} />} />
+				<Route path="explain" element={<ExplainCodePage title={`${pageTitle} Explain Code`} />} />
+				<Route path="unittest" element={<WriteUnitTestPage title={`${pageTitle} Write Unit Test`} />} />
 			</Routes>
 			<Footer />
 		</BrowserRouter>

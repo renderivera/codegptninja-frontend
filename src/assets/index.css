@@ -77,7 +77,7 @@ pre{
     margin-top: auto;
     align-self: center;
     padding: 5px;
-    font-size: 10px;
+    font-size: 12px;
 }
 
 .logo{
@@ -85,7 +85,9 @@ pre{
     align-items: center;
     justify-items: center;
     gap: 10px;
+    margin: 0;
 }
+
 
 .logo-img{
     color: var(--primary);
@@ -95,7 +97,6 @@ pre{
     height: 45px;
     margin: 0;
 }
-
 
 .logo-text{
     color: var(--primary);
@@ -178,10 +179,6 @@ pre{
     background-color: var(--primary);
     color: var(--bgcolor);
     cursor: pointer;
-}
-
-.loading-text {
-    font-size:  6pt;
 }
 
 .github-link{

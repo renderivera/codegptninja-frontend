@@ -5,7 +5,7 @@
   "scripts": {
     "start": "vite",
     "build": "vite build",
-    "serve": "http-server ./dist --brotli"
+    "serve": "http-server ./dist --brotli --gzip"
   },
   "dependencies": {
     "@fontsource/source-code-pro": "^4.5.14",

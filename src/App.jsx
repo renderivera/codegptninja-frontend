@@ -3,6 +3,7 @@ import Footer from "./components/Footer";
 import NavBar from "./components/NavBar";
 import WriteCodePage from "./pages/WriteCodePage";
 import ExplainCodePage from "./pages/ExplainCodePage";
+import { Provider } from "react-redux";
 
 import "@fontsource/source-code-pro";
 import "./assets/index.css";
@@ -13,15 +14,23 @@ ReactGA.initialize("G-45PW2SH6DH");
 
 const pageTitle = "CodeGPT Ninja |";
 
-export default function App() {
+export default function App({ store }) {
 	return (
-		<BrowserRouter>
-			<NavBar />
-			<Routes>
-				<Route path="/" element={<WriteCodePage title={`${pageTitle} Write Code`} />} />
-				<Route path="explain" element={<ExplainCodePage title={`${pageTitle} Explain Code`} />} />
-			</Routes>
-			<Footer />
-		</BrowserRouter>
+		<Provider store={store}>
+			<BrowserRouter>
+				<NavBar />
+				<Routes>
+					<Route
+						path="/"
+						element={<WriteCodePage title={`${pageTitle} Write Code`} />}
+					/>
+					<Route
+						path="explain"
+						element={<ExplainCodePage title={`${pageTitle} Explain Code`} />}
+					/>
+				</Routes>
+				<Footer />
+			</BrowserRouter>
+		</Provider>
 	);
 }

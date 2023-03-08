@@ -1,7 +1,5 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { loadingText } from "../assets/AsciiArt";
-import Typewriter from "./TypeWriter";
 import Editor from "react-simple-code-editor";
 import Prism from "prismjs";
 import "../assets/PrismLanguages";
@@ -9,7 +7,12 @@ import "prismjs/themes/prism-tomorrow.css";
 import { AiFillThunderbolt } from "react-icons/ai";
 import { HiClipboardCopy } from "react-icons/hi";
 
-export default function PromptForm({ useLazyFetchQuery, promptSelectorFunction, changePromptAction, placeholder }) {
+export default function PromptForm({
+	useLazyFetchQuery,
+	promptSelectorFunction,
+	changePromptAction,
+	placeholder,
+}) {
 	const { prompt, submittedPrompt } = useSelector(promptSelectorFunction);
 	const [fetchAi, result] = useLazyFetchQuery();
 	const language = useSelector((state) => state.language);
@@ -30,21 +33,24 @@ export default function PromptForm({ useLazyFetchQuery, promptSelectorFunction, 
 		navigator.clipboard.writeText(result.data.ai);
 	};
 
-	// load previous gpt result on page change
 	useEffect(() => {
 		if (submittedPrompt.length > 0) {
 			fetchAi(submittedPrompt, true);
 		}
-	}, [fetchAi, submittedPrompt]);
+	}, []);
 
 	let content = "";
 	if (result.isFetching) {
-		content = "loading..."
+		content = "loading...";
 	} else if (result.isError) {
-		content = `Error: (${result.error.status}) ${result.error.data.error}`;
+		content = `Error: (${result.error.status}) ${result.error.data?.error}`;
 	} else if (result.isSuccess) {
 		content = result.data.ai;
 	}
+
+	const highlight = (txt) => {
+		return Prism.highlight(txt, Prism.languages[language.value]);
+	};
 
 	return (
 		<div className="prompt-form">
@@ -52,14 +58,20 @@ export default function PromptForm({ useLazyFetchQuery, promptSelectorFunction, 
 				<div className="form-input">
 					<Editor
 						className="editor"
+						data-testid="input-editor"
 						value={prompt}
 						onValueChange={handleChange}
-						highlight={(prompt) => Prism.highlight(prompt, Prism.languages[language.value])}
+						highlight={highlight}
 						padding={0}
 						placeholder={placeholder}
 					/>
 				</div>
-				<button type="submit" className="form-button" disabled={result.isFetching || prompt.length === 0}>
+				<button
+					type="submit"
+					className="form-button"
+					data-testid="submit-button"
+					disabled={result.isFetching || prompt.length === 0}
+				>
 					<AiFillThunderbolt />
 					<div>go ninja</div>
 				</button>
@@ -68,14 +80,20 @@ export default function PromptForm({ useLazyFetchQuery, promptSelectorFunction, 
 				<div className="form-input">
 					<Editor
 						className="editor"
+						data-testid="output-editor"
 						value={content}
 						readOnly={true}
 						placeholder="result will be printed here"
-						highlight={(content) => Prism.highlight(content, Prism.languages[language.value])}
+						highlight={highlight}
 						padding={0}
 					/>
 				</div>
-				<button type="submit" className="form-button" disabled={result.isFetching || result.isError || content.length === 0}>
+				<button
+					type="submit"
+					className="form-button"
+					data-testid="copy-button"
+					disabled={result.isFetching || result.isError || content.length === 0}
+				>
 					<HiClipboardCopy />
 					<div>copy</div>
 				</button>

@@ -19,11 +19,11 @@ export default function NavBar() {
 		<div className="navbar">
 			<Logo />
 			<div className="menu">
-				<NavLink className="menu-item" to="/">
+				<NavLink className="menu-item" to="/" data-testid="write-menu-button">
 					<BiCodeAlt className="icon" />
 					<div>write</div>
 				</NavLink>
-				<NavLink className="menu-item" to="explain">
+				<NavLink className="menu-item" to="explain" data-testid="explain-menu-button">
 					<BiSearch className="icon" />
 					<div>explain</div>
 				</NavLink>

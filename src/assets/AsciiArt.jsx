@@ -1,7 +1,3 @@
-const loadingText = `█   ▄▀▄ ▄▀▄ █▀▄ █ █▄ █ ▄▀       
-█▄▄ ▀▄▀ █▀█ █▄▀ █ █ ▀█ ▀▄█ ▄ ▄ ▄
-`;
-
 const text = `▄▀▀ ▄▀▄ █▀▄ ██▀ ▄▀  █▀▄ ▀█▀   █▄ █ █ █▄ █   █ ▄▀▄
 ▀▄▄ ▀▄▀ █▄▀ █▄▄ ▀▄█ █▀   █    █ ▀█ █ █ ▀█ ▀▄█ █▀█
 YOUR PERSONAL CODING ASSISTANT, POWERED BY OPENAI CODEX`;
@@ -22,4 +18,4 @@ const image = `     #####
    #########   
      #####`;
 
-export { text, loadingText, image };
+export { text, image };

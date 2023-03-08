@@ -18,14 +18,19 @@ export default function PromptForm({
 	const language = useSelector((state) => state.language);
 	const dispatch = useDispatch();
 
-	const handleChange = (e) => {
-		dispatch(changePromptAction({ prompt: e }));
+	const langLabel = language.label;
+
+	const handleChange = (text) => {
+		dispatch(changePromptAction({ prompt: text }));
 	};
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		fetchAi(prompt, true).then(() => {
-			dispatch(changePromptAction({ submittedPrompt: prompt }));
+
+		const submittedPrompt = { text: prompt, langLabel };
+
+		fetchAi(submittedPrompt, true).then(() => {
+			dispatch(changePromptAction({ submittedPrompt }));
 		});
 	};
 	const copyToClipboard = (e) => {
@@ -34,7 +39,7 @@ export default function PromptForm({
 	};
 
 	useEffect(() => {
-		if (submittedPrompt.length > 0) {
+		if (submittedPrompt.text.length > 0) {
 			fetchAi(submittedPrompt, true);
 		}
 	}, []);

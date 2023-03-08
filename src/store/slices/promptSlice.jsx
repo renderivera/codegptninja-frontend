@@ -2,7 +2,10 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const promptTemplate = {
 	prompt: "",
-	submittedPrompt: "",
+	submittedPrompt: {
+		text: "",
+		langLabel: "",
+	},
 };
 
 const initialState = {

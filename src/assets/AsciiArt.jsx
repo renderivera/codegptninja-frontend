@@ -1,6 +1,6 @@
 const text = `▄▀▀ ▄▀▄ █▀▄ ██▀ ▄▀  █▀▄ ▀█▀   █▄ █ █ █▄ █   █ ▄▀▄
 ▀▄▄ ▀▄▀ █▄▀ █▄▄ ▀▄█ █▀   █    █ ▀█ █ █ ▀█ ▀▄█ █▀█
-YOUR PERSONAL CODING ASSISTANT, POWERED BY OPENAI CODEX`;
+   YOUR PERSONAL CODING ASSISTANT - POWERED BY OPENAI`;
 
 const image = `     #####     
    #########   
